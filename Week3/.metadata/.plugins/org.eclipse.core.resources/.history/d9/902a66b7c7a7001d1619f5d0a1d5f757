@@ -1,0 +1,22 @@
+package sets;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class HashSetExample {
+	
+	public static void main(String[] args) {
+		
+		//Set interface can be implementd using the hashSet class
+		Set<String> set = new HashSet<>();
+		
+		//ADD ELEMENTS TO THE SET
+		set.add("dog");
+		set.add("cat");
+		set.add("mouse");
+		set.add("tiger");
+		set.add("lion");
+		//print the size of the set
+		System.out.println(set.size());
+	}
+}

@@ -1,0 +1,25 @@
+package introtojava;
+
+public class Operatos {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int n=13; //assignment operator
+		System.out.println("The number is "+n);
+		
+		//Arithmetic operators %
+		System.out.println("12%3 is ="+n%3);
+		
+		//pre-increment ++x
+		int y=10;
+		int x=++y;
+		System.out.println("y = "+y +" x = "+x);
+		
+		//post-increment ++x
+		int a=10;
+		int b=++a;
+		System.out.println("a = "+a +" b = "+b);
+
+	}
+
+}

@@ -1,0 +1,27 @@
+package list;
+
+import java.util.Map;
+import java.util.LinkedHashMap;
+
+public class LinkedHashMapExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/*
+		 * LinkedHashMap is a java class use to implement the set interface
+		 * Unlike the HashSet that doesn't preserve any kind of order for the elements it contains, the LinkedHashSet does
+		 * The methods available to the HashSet are all available to the LinkedHashSet.
+		 * Indeed, the only real difference is that the LinkedHashSet retains the order in which the elements were added to the set
+		*/
+		
+		Map <String, Integer> map = new LinkedHashMap<>();
+		//LinkedMap maintains order in which elements were added to the list
+		map.put("John",25);
+		map.put("Jane",30);
+		map.put("Jack",30);
+		map.put("James",55);
+		
+		System.out.println(map);
+	}
+
+}

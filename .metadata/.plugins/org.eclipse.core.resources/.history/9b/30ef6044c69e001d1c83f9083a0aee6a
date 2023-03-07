@@ -1,0 +1,27 @@
+package introtojava;
+
+import java.util.Scanner;
+public class CalculateSpeed {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner obj = new Scanner(System.in);
+		System.out.println("Enter distance in meters");
+		double speedMeters=obj.nextDouble();
+		double speedKM=speedMeters/1000;
+		double speedMiles = speedMeters/1606;
+		
+		System.out.println("Enter hour in this format: HH:MM:SS");
+		String hour=obj.nextLine();
+		
+		String[] split = hour.split(":");
+		
+		//double hr=Double.parseDouble(split[0]);
+		//double min=Double.parseDouble(split[1]);
+		//double sec=Double.parseDouble(split[2]);
+		
+		System.out.print(split[0]);
+		
+	}
+
+}

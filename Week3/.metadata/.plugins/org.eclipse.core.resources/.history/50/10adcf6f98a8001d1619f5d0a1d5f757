@@ -1,0 +1,29 @@
+package jUnitExercise;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class TextbookUnitTest {
+	
+	//create 2 instance variable for the Textbook class
+	Textbook tb = new Textbook("Computer Science", 14.99, 9);
+    Textbook tb2 = new Textbook("Basketweaving", 19.99, 2);
+	
+	@Test
+	public final void testGetTitle() {
+		//make sure the title of textbook tb is equals to Computer Science
+		assertTrue(tb.getTitle().equals("Computer Science"));
+		
+		//make sure the title of textbook tb2 is equals to Basketweaving
+		assertTrue(tb2.getTitle().equals("Basketweaving"));
+	}
+	public final void testGetEdition() {
+		//make sure the edition of textbook tb is equals to 9
+		assertEquals(tb.getEdition(),9);
+		
+		//make sure the edition of textbook tb2 is equals to 2
+		assertTrue(tb2.getEdition() == 2);
+	}
+
+}

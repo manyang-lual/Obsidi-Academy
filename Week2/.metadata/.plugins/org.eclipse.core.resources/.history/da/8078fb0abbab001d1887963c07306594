@@ -1,0 +1,21 @@
+package abstractClass;
+
+public class Test {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		Board board1 = new Board();
+		board1.boardSetUp();
+		board1.printBoard();
+		board1.addToken(1, 12);
+		board1.addToken(1, 12);
+		board1.addToken(1, 12);
+		board1.addToken(1, 12);
+		board1.addToken(1, 12);
+		//board1.addToken(2, 14);
+		board1.printBoard();
+		System.out.println(board1.checkHorizontal(12));
+		
+	}
+
+}

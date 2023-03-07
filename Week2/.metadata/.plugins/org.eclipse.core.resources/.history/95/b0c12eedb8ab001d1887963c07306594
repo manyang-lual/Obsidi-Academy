@@ -1,0 +1,172 @@
+package abstractClass;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Board {
+    private String[][] board;
+    public int inHorizontalSequence;
+    public int inVerticalSequence;
+    public int inRightDiagonalSequence;
+    public int inLeftDiagonalSequence;
+    private static Scanner scanner = new Scanner(System.in);
+    public void boardSetUp() throws Exception {
+        System.out.print("Please enter the amount of rows for the board: ");
+        int row = Board.scanner.nextInt();
+        System.out.print("Please enter the amount of columns for the board: ");
+        int col = Board.scanner.nextInt();
+        if(row >= 4 && col >= 4 && row <= 10 && col <= 10) {
+        	this.board = new String[row][col];
+        	for(int i = 0;i < this.board.length;i++) {
+        		for(int j = 0;j < this.board[0].length;j++) {
+        			this.board[i][j] = "-";
+        		}
+        	}
+        } else {
+        	System.out.println("Please enter valid board size between 4 and 10 columns and rows.");
+        }
+        //printBoard();
+    }
+    public void printBoard() throws Exception {
+    	for(int i = 0;i < this.board.length;i++) {
+    		for(int j = 0;j < this.board[0].length;j++) {
+    			System.out.print(this.board[i][j] + " "); // = "-";
+    		}
+    		System.out.println();
+    	}
+        //System.out.println(Arrays.deepToString(this.board));
+    }
+    public boolean columnFull(int col) {
+        boolean isColumnFull;
+        if(this.board[this.board.length - 1][col] == "-") {
+            isColumnFull = false;
+        } else {
+            isColumnFull = true;
+        }
+        return isColumnFull;
+    }
+    public boolean boardFull() throws Exception {
+        boolean isBoardFull = false;
+        for(int i = 0;i < this.board.length;i++) {
+            for(int j = 0;j < this.board[i].length;j++) {
+                if(this.board[i][j] == "-") {
+                    isBoardFull = false;
+                } else {
+                    isBoardFull = true;
+                }
+            }
+        }
+        return isBoardFull;
+    }
+    public boolean addToken(int colToAddToken, int playerNumber) { // throws ColumnFullException {
+        boolean tokenAdded = false;
+        do {
+            if (columnFull(colToAddToken)) {
+                System.out.println("Column Full.");
+            } else {
+                for(int i = 0;i < this.board.length && !tokenAdded;i++) {
+                    if (this.board[i][colToAddToken] == "-") {
+                        this.board[i][colToAddToken] = Integer.toString(playerNumber);
+                        tokenAdded = true;
+                    }
+                }
+            }
+        } while(tokenAdded == false);
+        return tokenAdded;
+    }
+    public boolean checkIfPlayerIsTheWinner(int playerNumber) throws Exception {
+        return checkVertical(playerNumber) || checkHorizontal(playerNumber) || checkRightDiagonal(playerNumber) || checkLeftDiagonal(playerNumber);
+    }
+    public boolean checkVertical(int playerNumber) throws Exception {
+        boolean playerWonVertical = false;
+        inVerticalSequence = 0;
+        for(int i = this.board.length - 1;i >= 0 && !playerWonVertical;i--) {
+            for(int j = this.board.length - 1;j >= 0 && !playerWonVertical;j--) {
+                if(this.board[i][j] == Integer.toString(playerNumber)) {
+                    for(int k = i;k >= 0 && !playerWonVertical;k--) {
+                    	if (this.board[k][j] == Integer.toString(playerNumber)) {
+                    		inVerticalSequence++;
+                    	}
+                    	if (inVerticalSequence == 4) {
+                    		playerWonVertical = true;
+                    	}
+                    }
+                }
+            }
+        }
+        return playerWonVertical;
+    }
+    public boolean checkHorizontal(int playerNumber) throws Exception {
+        boolean playerWonHorizontal = false;
+        inHorizontalSequence = 0;
+        for(int i = this.board.length - 1;i >= 0 && !playerWonHorizontal;i--) {
+            for(int j = 0;j < this.board[i].length && !playerWonHorizontal;j++) {
+                if(this.board[i][j] == Integer.toString(playerNumber)) {
+                	for(int k = j;k< this.board[i].length && !playerWonHorizontal;k++) {
+                		if(this.board[i][k].equals(Integer.toString(playerNumber))) {
+                			inHorizontalSequence++;
+                		}
+                		if (inHorizontalSequence == 4) {
+                			playerWonHorizontal = true;
+                		}
+                	}
+                }
+            }
+        }
+        return playerWonHorizontal;
+    }
+    public boolean checkRightDiagonal(int playerNumber) {
+        boolean playerWonRightDiagonal = false;
+        inRightDiagonalSequence = 0;
+        for(int i = this.board.length - 1;i >= 0 && !playerWonRightDiagonal;i--) {
+            for(int j = 0;j < this.board[i].length && !playerWonRightDiagonal;j++) {
+                if(this.board[i][j] == Integer.toString(playerNumber)) {
+                	int a = j;
+                    for(int k = i;k >= 0 && !playerWonRightDiagonal;k--) {
+                    	if (this.board[k][a] == Integer.toString(playerNumber)) {
+                    		inRightDiagonalSequence++;
+                    	}
+                    	if (k< 0 || a < 0) {
+                    		break;
+                    	}
+                    	if (this.board[k][a] != Integer.toString(playerNumber)) {
+                    		break;
+                    	}
+                    	if(inRightDiagonalSequence == 4) {
+                    		playerWonRightDiagonal = true;
+                    	}
+                    	a++;
+                    }
+                }
+            }
+        }
+        return playerWonRightDiagonal;
+    }
+    public boolean checkLeftDiagonal(int playerNumber) throws Exception {
+        boolean playerWonLeftDiagonal = false;
+        inLeftDiagonalSequence = 0;
+        for(int i = this.board.length -1 ;i >= 0 && !playerWonLeftDiagonal;i--) {
+            for(int j = this.board.length - 1;j >= 0 && !playerWonLeftDiagonal;j--) {
+                if(this.board[i][j] == Integer.toString(playerNumber)) {
+                	int a = j;
+                	for(int k = i;k>=0 && !playerWonLeftDiagonal;k--) {
+                		if (this.board[k][a] == Integer.toString(playerNumber)) {
+                			inLeftDiagonalSequence++;
+                		}
+                		if(k< 0 || a <0) {
+                			break;
+                		}
+                		if(this.board[k][a] != Integer.toString(playerNumber)) {
+                			break;
+                		}
+                		if(inLeftDiagonalSequence == 4) {
+                			playerWonLeftDiagonal = true;
+                		}
+                		a--;
+                	}
+                }
+            }
+        }
+        return playerWonLeftDiagonal;
+    }
+}

@@ -1,0 +1,65 @@
+package oopIntro;
+
+import java.util.Scanner;
+public class Game {
+	private Player[] players;
+	private Board board;
+	private Scanner scanner = new Scanner(System.in);
+	
+	public Game() {
+		//every time you create a new Game, you prompt the user to enter names of two players
+		//You have to make sure the two names are unique
+		//if the names are unique, set up the board, by calling new board
+		System.out.println( "Enter the name of player1"); 
+		String player1Name=scanner.nextLine();
+		
+		System.out.println( "Enter the name of player2"); 
+		String player2Name=scanner.nextLine();
+		
+		//Make sure the two players have unique names
+		if(player1Name.equalsIgnoreCase(player2Name)) {
+			System.out.println("The two palyers have same name. \nRun the game again");
+			System.exit(1);
+		}
+		else {
+			players = new Player[2];
+			players[0]= new Player(player1Name,null);
+			players[1]= new Player(player2Name,null);
+			this.board = new Board();
+		}
+		
+	}
+	public void printWinner(Player player) {
+		System.out.println("The winner is "+player.getName());
+	}
+	
+	public void playerTurn(Player currentPlayer) throws Exception, InvalidMoveException, ColumnFullException{
+		
+		int column=currentPlayer.makeMove(); 		//column where player when to play their name
+		
+		String[][] board1 = board.getBoard();		//returns the 2D array that is initialize with -											//returns the board as a 2D array
+		int numberOfColumns = board1[0].length; 	//Get you the number of columns you board has
+		
+		try {
+			if(column > numberOfColumns) {
+				throw new InvalidMoveException("The column number exceeds the number of columns on the board. ");
+			
+			}
+			else if(board.columnFull(column)) { 
+				throw new ColumnFullException("The selected column is full and cannot accept any more tokens.. ");
+			}
+			else {
+				board.addToken(column,"Lual");
+				board.printBoard();
+			}
+			
+		}catch(Exception exp) {
+			System.out.println(exp.getMessage());
+			System.out.println("Run the program again." );
+		}
+		
+	}
+	public void play() {
+		
+	}
+}

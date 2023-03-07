@@ -1,0 +1,6 @@
+INDEX VERSION 1.131+/Users/admin/Desktop/Obsidi Academy/Week3/.metadata/.plugins/org.eclipse.jdt.core
+1865797976.index
+2715653902.index
+3681721198.index
+534672047.index
+865779344.index

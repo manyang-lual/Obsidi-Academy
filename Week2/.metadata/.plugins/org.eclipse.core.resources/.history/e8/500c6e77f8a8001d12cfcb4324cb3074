@@ -1,0 +1,8 @@
+package oopIntro;
+
+public class InputMismatchException extends Exception{
+	
+	public static void main(String[] args) {
+		System.out.println("The player did not provide a valid input for the column number. ");
+	}
+}

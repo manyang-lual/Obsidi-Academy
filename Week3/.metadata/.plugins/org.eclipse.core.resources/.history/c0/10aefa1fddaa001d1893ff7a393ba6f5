@@ -1,0 +1,23 @@
+package iterator_interface;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class IteratorClass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		List<String> cars = new ArrayList<>();
+		cars.add("Mazda");
+		cars.add("BMW");
+		cars.add("Tesla");
+		cars.add("Ferrari");
+		cars.add("Toyota");
+		
+		//creating Iterator object
+		Iterator<String> it = cars.iterator();
+		System.out.println(it.hasNext());
+	}
+
+}

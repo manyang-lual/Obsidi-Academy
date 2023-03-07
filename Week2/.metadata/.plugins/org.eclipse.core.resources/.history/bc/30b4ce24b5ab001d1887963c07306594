@@ -1,0 +1,12 @@
+package abstractClass;
+
+public class Test {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		Board board1 = new Board();
+		board1.boardSetUp();
+		board1.printBoard();
+	}
+
+}

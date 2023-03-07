@@ -1,0 +1,13 @@
+package oopIntro;
+
+import java.util.Scanner;
+
+public class ScannerExample {
+
+	public static void main(String [] args) throws InputMismatchException {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter number");
+		int column = Integer.parseInt(scanner.nextLine());
+		System.out.println(column);
+	}
+}

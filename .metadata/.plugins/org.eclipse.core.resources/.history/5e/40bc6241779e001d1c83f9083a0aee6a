@@ -1,0 +1,53 @@
+package introtojava;
+
+import java.util.Scanner;
+public class StringOperations {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        Scanner obj = new Scanner(System.in);
+
+        System.out.println("/................String Menu................/");
+		System.out.println("Press 1 for Palindrome Check");
+		System.out.println("Press 2 to reverse a String");
+		System.out.println("Press 3 to Concatenate two Strings");
+		System.out.println("Press 4 for String Comparison");
+		System.out.println("Press 5 to Calculate the Length of String");
+
+        System.out.println("Enter the option:");
+        String str = obj.nextLine();
+        int option = Integer.parseInt(str);
+
+        String input;
+        if(option==1){
+            System.out.println("Palimdrome Check");
+            System.out.println("Enter a string");
+            input = obj.nextLine();
+            System.out.println(input);
+            
+            isPalindrome(input);
+        	}
+    	}
+  
+       public static void isPalindrome(String string){
+            String str=string.toLowerCase();
+            boolean check=true;
+            int frontIndex=0;
+            for(int index=str.length()-1; index>str.length()/2; index--){
+                if(str.charAt(index-frontIndex) != str.charAt(frontIndex)){
+                	check=false;
+                    break;
+                }
+                System.out.println(string+" is a palindrome");
+            }
+            
+            if(!check){
+                System.out.println("The String "+ string+" is not a palindrome ");
+            }
+            else{
+                System.out.println("The string "+string+" is a palindrome" );
+            }
+    		
+        }
+
+}

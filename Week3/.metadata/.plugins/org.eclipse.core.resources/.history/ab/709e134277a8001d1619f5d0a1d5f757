@@ -1,0 +1,16 @@
+package generics;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		Printer<Integer>IntegerPrinter = new Printer<>(23);
+		IntegerPrinter.printValue();
+		
+		Printer <Double> DoublePrinter = new Printer<>(23.4546);
+		DoublePrinter.printValue();
+		
+		Printer <String> StringPrinter = new Printer<>("Lual");
+		StringPrinter.printValue();
+	}
+
+}

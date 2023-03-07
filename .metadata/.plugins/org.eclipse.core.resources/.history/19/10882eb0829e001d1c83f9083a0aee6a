@@ -1,0 +1,43 @@
+package introtojava;
+
+import java.util.Scanner;
+
+public class Pluralizer {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner inp = new Scanner(System.in);
+	    System.out.print("# in:");
+	    int amt = inp.nextInt();
+	    inp.nextLine(); //this line is necessary
+	    System.out.print("word:");
+	    String word = inp.nextLine();
+	    //leave the above unedited, write your code below:
+	    
+	    String str=inp.nextLine();
+	    if(amt<=1) {
+	    	System.out.print("# in:");
+	    	System.out.print("word:"+str);
+	    }
+	    else {
+	    	
+	    	if(str.substring(str.length()-2).equals("fe")){
+	    		System.out.print("# in:"+amt);
+		    	
+	    		String s = str.substring(0,str.length()-1)+"ves";
+		    	//String s= new String(arr);
+		    	System.out.print("word:"+s);
+	    	}
+	    }
+
+	}
+	public static char[] plural(String string) {
+		char[] arr = new char[string.length()+3];
+		
+		for(int i=0; i<string.length()-2; i++) {
+			arr[i]=string.charAt(i);
+		}
+		return arr;
+	}
+
+}

@@ -1,0 +1,5 @@
+package friday_challenges;
+
+public class OutOfStockException {
+
+}

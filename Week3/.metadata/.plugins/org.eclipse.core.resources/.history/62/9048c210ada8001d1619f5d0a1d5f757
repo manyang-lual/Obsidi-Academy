@@ -1,0 +1,20 @@
+package jUnitExercise;
+
+public class PalindromeCheck {
+	
+	public static boolean isPalindrome(int number) {
+		int reverse=0;
+		int remainder=0;
+		int original=number;
+		while(number != 0) {
+			remainder=number%10;
+			reverse=reverse*10+remainder;
+			number=number/10;
+		}
+		
+		return original==reverse;
+	}
+	public static void main(String[] args) {
+		System.out.println(isPalindrome(122));
+	}
+}

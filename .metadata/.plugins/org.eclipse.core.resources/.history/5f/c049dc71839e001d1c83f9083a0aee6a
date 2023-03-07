@@ -1,0 +1,38 @@
+package introtojava;
+
+import java.util.Scanner;
+
+public class Pluralizer {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner inp = new Scanner(System.in);
+	    System.out.print("# in:");
+	    int amt = inp.nextInt();
+	    inp.nextLine(); //this line is necessary
+	    System.out.print("word:");
+	    String word = inp.nextLine();
+	    //leave the above unedited, write your code below:
+	    
+	    if(amt<=1) {
+	    	System.out.print(amt+" "+word);
+	    }
+	    else {
+	    	
+	    	if(word.substring(word.length()-2).equals("fe")){
+	    		
+	    		String s = word.substring(0,word.length()-2)+"ves";
+		    	
+		    	System.out.print(amt+" "+s);
+	    	}
+	    	
+	    	if(word.substring(word.length()-1).equals("y")) {
+	    		String s = word.substring(0,word.length())+"ies";
+		    	System.out.print(amt+" "+s);
+	    		
+	    	}
+	    }
+
+	}
+
+}

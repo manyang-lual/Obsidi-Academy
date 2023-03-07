@@ -1,0 +1,10 @@
+package friday_challenges;
+
+public class PhoneNumberPrefix {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

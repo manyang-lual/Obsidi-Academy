@@ -1,0 +1,43 @@
+package introtojava;
+import java.util.Scanner;
+public class Calculator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner obj = new Scanner(System.in);
+		double number1;
+		double number2;
+		
+		System.out.println("/................Calculator Menu................/");
+		System.out.println("Press 1 for addition");
+		System.out.println("Press 2 for subtraction");
+		System.out.println("Press 3 for Multiplication");
+		System.out.println("Press 4 for Division");
+		System.out.println("Press 5 for findind Square");
+		System.out.println("Press 6 for findind Square Root");
+		System.out.println("Press 7 for findind Reciprocal");
+		
+		int option= obj.nextInt();
+		
+		System.out.println("Enter the first number");
+		number1=obj.nextDouble();
+		
+		System.out.println("Enter the second number");
+		number2=obj.nextDouble();
+		
+		if(option==1) {
+			System.out.println("The addition of the " + number1 +  " and " +number2+" is = "+(number1+number2));
+		}
+		
+		else if(option==2) {
+			System.out.println("The subtraction of the " + number1 +  " and " +number2+" is = "+(number1-number2));
+		}
+		else if(option==3) {
+			System.out.println("The amultiplication of the " + number1 +  " and " +number2+" is = "+(number1*number2));
+		}
+		else if(option==2) {
+			System.out.println("The division of the " + number1 +  " and " +number2+" is = "+(number1/number2)2);
+		}
+	}
+
+}
