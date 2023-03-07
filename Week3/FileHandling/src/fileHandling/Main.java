@@ -1,0 +1,16 @@
+package fileHandling;
+
+//Your package name goes here
+
+import java.sql.Connection;
+
+public class Main {
+	    public static void main(String[] args) {
+	    	
+//	    	StudentAppClass jdbc = new StudentAppClass();
+//	        Connection conn = jdbc.CreateConnection();
+//	        //jdbc.AddStudent(conn, 5, "Gilbert Ekale", "gilbert@ekale.com", 45364);
+//	        jdbc.GetAllStudents(conn);
+//	       // jdbc.CloseConnection(conn);
+	    }
+}

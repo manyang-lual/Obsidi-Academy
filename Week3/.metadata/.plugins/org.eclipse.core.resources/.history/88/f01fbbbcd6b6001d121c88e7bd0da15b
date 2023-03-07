@@ -1,0 +1,10 @@
+package fileHandling;
+
+public class FileHandling {
+	private static String HOME = System.getProperty("user.home");
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Home directory: "+ HOME);
+	}
+
+}

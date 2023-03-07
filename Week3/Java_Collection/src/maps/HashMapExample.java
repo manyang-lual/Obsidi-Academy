@@ -1,7 +1,9 @@
 package maps;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class HashMapExample {
 
@@ -21,18 +23,32 @@ public class HashMapExample {
 		 */
 		Map<String, Integer> map = new HashMap<>();
 		map.put("A", 1);
-		map.put("B", 10);
-		map.put("D", 2);
-		map.put("C", 5);
-		map.put("E", 7);
+		map.put("B", 2);
+		map.put("D", 3);
+		map.put("C", 4);
+		map.put("E", 5);
 		map.put("A", null);
-		map.put("Z", 10);
+		map.put("Z", 26);
 		map.put(null, 17);
 	
 		// Print the size of the map
 		//similar to arrayList and set
-		System.out.println(map.size());
+		//System.out.println(map.entrySet());
 		
+		for(Map.Entry<String, Integer> set: map.entrySet()){
+			System.out.println("key is "+set.getKey()+" the value is "+set.getValue());
+		}
+		
+		for(String key : map.keySet()) {
+			System.out.println("The key is "+key+" the value is "+map.get(key));
+		}
+		Iterator<Map.Entry<String, Integer>> it = map.entrySet().iterator();
+		while(it.hasNext()) {
+			Entry<String, Integer> set = it.next();
+			System.out.println("The key is "+ set.getKey()+" the value is "+set.getValue());
+		}
+		
+		/*
 		map.remove(null);		//removes the null key and the value associated with
 		System.out.println(map.containsValue(7));  //returns true since 7 is in the map
 		System.out.println(map.containsKey("A"));  //returns true since A is A key in the map
@@ -68,6 +84,9 @@ public class HashMapExample {
 		System.out.println("Printing the key-value pairs using for-each method and lambda");
 		map.forEach((key,value)->System.out.println("The value of key "+key+" is "+ value));
 		
+		
+		*/
 	}
+	
 
 }

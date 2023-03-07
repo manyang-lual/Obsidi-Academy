@@ -1,0 +1,46 @@
+package fileHandling;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+public class FileHandling {
+	private static String DIR = System.getProperty("user.dir");
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Home directory: "+ DIR);
+		
+		//Check if a file exists ;
+		Path p = Paths.get(DIR+"/test.tzt");
+		System.out.println(Files.exists(p));
+	}
+	public boolean iFileExist() {
+		//Check if a file exists ;
+		
+		Path p = Paths.get(DIR+"/test.tzt");
+		return Files.exists(p);
+	}
+	public boolean isFileExistsWithExceptionHandling() {
+		boolean check = false;
+		
+		try {
+			Path p = Paths.get(DIR+"/test.txt");
+			if(Files.exists(p)) {
+				check = true;
+			}
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		return check;
+	}
+	public void createFileIfNotExist() throws IOException {
+		Path p = Paths.get(DIR+"/test.txt");
+		if(!isFileExistsWithExceptionHandling()) {
+			 Files.createFile(p); 
+		}
+	}
+
+}

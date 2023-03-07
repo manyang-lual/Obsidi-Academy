@@ -1,3 +1,0 @@
-module Java_Collection {
-	requires junit;
-}
